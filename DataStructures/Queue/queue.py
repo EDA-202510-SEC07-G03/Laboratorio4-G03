@@ -11,8 +11,8 @@ def dequeue(my_queue):
     my_queue["elements"].pop(0)
     return dequeue
 
-def size(dequeue):
-    return dequeue["size"]
+def size(my_queue):
+    return my_queue["size"]
 
 
 def new_queue():
