@@ -1,7 +1,6 @@
 def new_list():
     newlist = {
-        "elements": [],
-        "size": 0,
+        "size": 0,"elements": []
     }
     return newlist
 
