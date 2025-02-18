@@ -1,9 +1,7 @@
 from DataStructures.List import list_node as ln
 
 def new_list():
-    newlist={"first":None,
-             "last":None,
-             "size":0}
+    newlist={"size":0,"first":None,"last":None,}
     return(newlist)
 
 def get_element (my_list,pos):
@@ -53,7 +51,7 @@ def add_last(my_list,element):
     if my_list["size"]==0:
         my_list["first"]=new_node
     
-    my_list["size"]+=0
+    my_list["size"]+=1
     
     return my_list
 def size(my_list):

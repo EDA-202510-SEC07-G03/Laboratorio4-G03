@@ -13,8 +13,10 @@ def is_empty(my_queue):
 
 def dequeue(my_queue):
     return al.remove_first(my_queue)
+    return al.remove_first(my_queue)
 
 def size(my_queue):
+    return al.size(my_queue)
     return al.size(my_queue)
 
 
