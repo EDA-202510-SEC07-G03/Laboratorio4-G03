@@ -1,7 +1,7 @@
-from DataStructures.List import single_linked_list as sl
+from DataStructures.List import single_linked_list as lt
 from DataStructures.List import list_node as ln
 def new_stack():
-    return sl.new_list()
+    return lt.new_list()
 
 def push(my_stack,element):
     """
@@ -31,7 +31,7 @@ def pop(my_stack):
     return to_delete["info"]
 
 def is_empty(my_stack):
-    return sl.is_empty(my_stack)
+    return lt.is_empty(my_stack)
 
 def top(my_stack):
     return my_stack["last"]["info"]
