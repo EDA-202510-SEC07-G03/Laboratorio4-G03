@@ -65,8 +65,10 @@ def load_data(control):
 
 def print_books_to_read(results):
     # TODO Imprimir los libros por leer
-    pass
+    print(logic.get_books_stack_by_user(results))
 
+def print_user_queue_position(results):
+    print(logic.get_user_position_on_queue(results))
 
 def print_tests_results(queue_results, stack_results):
     """
@@ -121,6 +123,7 @@ def main():
 
             result = logic.get_user_position_on_queue(
                 control, int(user_id), int(book_id))
+            print_user_queue_position(result)
             # TODO Imprimir la posición del usuario en la cola
 
         elif int(inputs[0]) == 4:
