@@ -17,26 +17,18 @@ def push(my_stack,element):
     
     return my_stack
 
-def size(my_stack):
-    return my_stack["size"]
 
 def pop(my_stack):
-    removed_info=0
-    if is_empty(my_stack)==True:
-         raise Exception('IndexError: list index out of range')
-    else:
-         if my_stack["size"]==1:
-             removed_info=sl.remove_first(my_stack)
-         else:
-             current=my_stack["first"]
-             removed_info=my_stack["last"]
-             while current != my_stack["last"]:
-                 current=current["next"]
-                 if current["next"]==my_stack["last"]:
-                    current["next"]=None
-                    my_stack["last"]=current
-                    my_stack["size"]-=1
-    return removed_info
+    to_delete = my_stack["last"]
+    reference = my_stack["first"]
+    for i in range(0, (my_stack["size"])-2):
+        reference = reference["next"]
+        
+    my_stack["last"] = reference
+    
+    my_stack["size"] -= 1
+    
+    return to_delete["info"]
 
 def is_empty(my_stack):
     return sl.is_empty(my_stack)
@@ -45,5 +37,4 @@ def top(my_stack):
     return my_stack["last"]["info"]
 
 def size(my_stack):
-    print(my_stack["size"])
     return my_stack["size"]
