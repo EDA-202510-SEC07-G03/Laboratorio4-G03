@@ -27,6 +27,7 @@
 import csv
 import os
 import time
+from DataStructures.List import single_linked_list as sl
 from DataStructures.List import array_list as lt
 from DataStructures.Queue import queue as q
 from DataStructures.Stack import stack as st
@@ -388,17 +389,8 @@ def measure_stack_performance(catalog):
     top = st.top(stack)
     end_time = get_time()
     top_time = delta_time(start_time, end_time)
-
-    
-    # Medir dequeue
-    # TODO Implementar la medición de tiempo para la operación pop
-    start_time = get_time()
-    while not st.is_empty(stack):
-        st.pop(stack)
-    end_time = get_time()
-    pop_time = delta_time(start_time,end_time)
     return {
         "push_time": push_time,
         "top_time": top_time,
-        "pop_time": pop_time
+        #"pop_time": pop_time
     }
