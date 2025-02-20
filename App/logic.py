@@ -27,8 +27,8 @@
 import csv
 import os
 import time
-from DataStructures.List import single_linked_list as sl
-from DataStructures.List import array_list as lt
+from DataStructures.List import single_linked_list as lt
+from DataStructures.List import array_list as st
 from DataStructures.Queue import queue as q
 from DataStructures.Stack import stack as st
 # TODO Importar las librerías correspondientes para el manejo de pilas y colas
@@ -373,11 +373,13 @@ def measure_stack_performance(catalog):
     """
 
     stack = st.new_stack()
+    
 
     # Medir push
     start_time = get_time()
     # TODO Implementar la medición de tiempo para la operación push
-    for pos in catalog["book_sublist"]["elements"]:
+    print(catalog["book_sublist"])
+    for pos in catalog["book_sublist"]:
         push = st.push(stack,pos)
     end_time = get_time()
     push_time = delta_time(start_time,end_time)
