@@ -135,10 +135,14 @@ def get_books_stack_by_user(catalog, user_id):
     Retorna una pila con los libros que un usuario tiene por leer.
     """
     books_stack = st.new_stack()
-
-    # TODO Completar la función que retorna los libros por leer de un usuario. Se debe usar el TAD Pila para resolver el requerimiento
-
+    for posicion in range(lt.size(catalog['books_to_read'])):
+        book_to_read = lt.get_element(catalog['books_to_read'], posicion)
+        if book_to_read['user_id'] == user_id:
+            book = lt.get_element(catalog['books'], book_to_read['book_id'])
+            st.push(books_stack, book)
     return books_stack
+    
+    # TODO Completar la función que retorna los libros por leer de un usuario. Se debe usar el TAD Pila para resolver el requerimiento
 
 
 def get_user_position_on_queue(catalog, user_id, book_id):
@@ -147,9 +151,21 @@ def get_user_position_on_queue(catalog, user_id, book_id):
     """
     queue = q.new_queue()
 
+    for posicion in range(lt.size(catalog['books_to_read'])):
+        book_to_read = lt.get_element(catalog['books_to_read'], posicion)
+        if book_to_read['book_id'] == book_id:
+            q.enqueue(queue, book_to_read['user_id'])
+    
+    position = 0
+    if q.is_empty(queue):
+        return -1
+    else:
+        user = q.dequeue(queue)
+        if user == user_id:
+            return position
+        position += 1
+    return -1
     # TODO Completar la función que retorna la posición de un usuario en la cola para leer un libro. Se debe usar el TAD Cola para resolver el requerimiento.
-
-    return position
 
 # Funciones para agregar informacion al catalogo
 
@@ -270,7 +286,7 @@ def book_tag_size(catalog):
 
 def books_to_read_size(catalog):
     # TODO Implementar la función que retorna el tamaño de la lista de libros por leer
-    pass
+    return lt.size(catalog['books_to_read'])
 
 # Funciones utilizadas para comparar elementos dentro de una lista
 
@@ -360,16 +376,24 @@ def measure_stack_performance(catalog):
     # Medir push
     start_time = get_time()
     # TODO Implementar la medición de tiempo para la operación push
-
+    push = st.push(stack)
+    end_time = get_time()
+    push_time = delta_time(start_time,end_time)
+    
     # Medir top
     start_time = get_time()
+    
     # TODO Implementar la medición de tiempo para la operación top
+    top = st.top(stack)
     end_time = get_time()
     top_time = delta_time(start_time, end_time)
 
     # Medir dequeue
     # TODO Implementar la medición de tiempo para la operación pop
-
+    start_time = get_time()
+    pop = st.pop(stack)
+    end_time = get_time()
+    pop_time = delta_time(start_time,end_time)
     return {
         "push_time": push_time,
         "top_time": top_time,
