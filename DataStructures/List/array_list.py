@@ -46,7 +46,7 @@ def is_empty(my_list):
     return result
 
 def first_element(my_list):
-    if my_list["elements"][0] == None:
+    if is_empty(my_list):
         return "IndexError: list index out of range"
     else:
         return my_list["elements"][0]

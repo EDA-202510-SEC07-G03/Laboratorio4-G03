@@ -27,7 +27,6 @@ def pop(my_stack):
     my_stack["last"] = reference
     
     my_stack["size"] -= 1
-    
     return to_delete["info"]
 
 def is_empty(my_stack):

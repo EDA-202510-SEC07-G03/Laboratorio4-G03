@@ -158,11 +158,13 @@ def exchange(my_list,pos1,pos2):
         primero["next"]=segundo["next"]
         segundo["next"]=primero["next"]
     return my_list
-    
+
+
+
 def sub_list(my_list,pos,num_elements):
     conteo=0
     conteo2=0
-    nueva_lista={"first":None,"last":None,"size":0}
+    nueva_lista=new_list()
     if pos < 0 or pos > size(my_list):
         raise Exception('IndexError: list index out of range')
     else:
@@ -174,6 +176,7 @@ def sub_list(my_list,pos,num_elements):
         while conteo2 < num_elements:
             conteo2+=1
             actual=actual["next"]
-        actual["next"]=None
-    return my_list
+            if actual==None:
+                return nueva_lista
+            nueva_lista=add_last(actual)
             
